@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<%-include("partials/header")-%>
+<h1>DELETE</h1>
+<h3> Choose What You Might Want To Delete Here!  </h3>
+
+
+<%publishArray.forEach(function(publication){%>
+   <% const inputValue = publication._id%>
+    <form action="/postDelete" value="publication._id" method="post">
+<h1><%= publication.title %> <button type="submit" class="btn btn-danger delete">X</button> </h1><input type="hidden" name="theInput" value="<%=inputValue%>"></input>
+<%const theContent = publication.post%>
+<%if (theContent.length > 100) {%>
+   <p> <%= publication.post.substring(0, 100)%>... <a href="/posts/<%=publication.title%>">read more</a></p>
+<%} else {%>
+  <p> <%= publication.post %></p>
+<%}%>
+</form>
+<%});%>
+<%-include("partials/footer")-%>

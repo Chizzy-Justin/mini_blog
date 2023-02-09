@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<%-include("partials/header")-%>
+<h1>Home</h1>
+<p> <%= homeStartingContent%>  </p>
+
+
+<%publishArray.forEach(function(publication){%>
+<h1><%= publication.title %></h1>
+<%const theContent = publication.post%>
+<%if (theContent.length > 100) {%>
+   <p> <%= publication.post.substring(0, 100)%>... <a href="/posts/<%=publication.title%>">read more</a></p>
+<%} else {%>
+  <p> <%= publication.post %></p>
+<%}%>
+  
+<%});%>
+<%-include("partials/footer")-%>

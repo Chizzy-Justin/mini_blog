@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<%-include("partials/header")-%>
+<h1>Compose</h1>
+<form method="post" action="/compose">
+	<div class="form-group">
+		<label for="aTitle">Title</label>
+	<input type="text" id="aTitle" name="title" class="form-control">
+	<label for="aPost">Post</label>
+	<textarea type="text" id="aPost" name="post" rows="3" class="form-control"></textarea>
+	<button type="submit" class="btn btn-primary">Publish</button>
+	</div>
+	
+</form>
+
+<form action="/delete" method="post">
+	<button type="submit" class="btn btn-danger me-auto">Delete A Post</button></form>
+<%-include("partials/footer")-%>
