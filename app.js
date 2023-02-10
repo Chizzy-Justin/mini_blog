@@ -1,5 +1,6 @@
 //jshint esversion:6
 //preliminaries
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //mongoose setting
-mongoose.connect("mongodb+srv://Chizzy-Justin:mynewlunch0!box@cluster0.aiudgae.mongodb.net/blogContentsDB", {useNewUrlParser: true})
+mongoose.connect("mongodb+srv://Chizzy-Justin:"+ process.env.PASSWORD +"@cluster0.aiudgae.mongodb.net/blogContentsDB", {useNewUrlParser: true})
 mongoose.set("strictQuery", false);
 
 const contentSchema = new mongoose.Schema({
@@ -132,6 +133,6 @@ app.get("/delete", function(req, res){
 
 
 
-app.listen(3000, function() {
+app.listen(3000 || process.env.PORT, function() {
   console.log("Server started on port 3000");
 });
