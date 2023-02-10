@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //mongoose setting
-mongoose.connect("mongodb://127.0.0.1:27017/blogContentsDB", {useNewUrlParser: true})
+mongoose.connect("mongodb+srv://Chizzy-Justin:mynewlunch0!box@cluster0.aiudgae.mongodb.net/blogContentsDB", {useNewUrlParser: true})
 mongoose.set("strictQuery", false);
 
 const contentSchema = new mongoose.Schema({
